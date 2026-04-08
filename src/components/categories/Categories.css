@@ -1,0 +1,80 @@
+.categories {
+  background: #0b1a33;
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.categories h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.categories p {
+  color: #94a3b8;
+  margin-bottom: 50px;
+}
+
+/* GRID */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* CARD */
+.card {
+  background: #112240;
+  padding: 30px 20px;
+  border-radius: 10px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+/* HOVER */
+.card:hover {
+  transform: translateY(-8px);
+  background: #1e3a8a;
+}
+
+/* ICONO */
+.icon {
+  font-size: 35px;
+  margin-bottom: 15px;
+  color: #4da6ff;
+}
+
+/* TEXTOS */
+.card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 14px;
+  color: #cbd5f5;
+}
+
+/* Botón al final de las categorías */
+.categories-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.categories-btn button {
+  background: linear-gradient(90deg, #1e90ff, #0066ff);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.categories-btn button:hover {
+  transform: scale(1.05);
+}

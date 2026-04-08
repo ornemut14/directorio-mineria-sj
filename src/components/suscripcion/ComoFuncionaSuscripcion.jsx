@@ -1,0 +1,48 @@
+// ComoFuncionaSuscripcion.jsx
+import React from "react";
+import "./ComoFuncionaSuscripcion.css";
+
+const pasos = [
+  {
+    numero: 1,
+    titulo: "Registrate",
+    descripcion:
+      "Creá tu cuenta en el Directorio de Proveedores para poder acceder a todos los servicios y proveedores disponibles.",
+  },
+  {
+    numero: 2,
+    titulo: "Seleccioná tu plan",
+    descripcion:
+      "Elegí el plan de suscripción que mejor se adapte a tus necesidades y obtené beneficios exclusivos.",
+  },
+  {
+    numero: 3,
+    titulo: "Disfrutá de los servicios",
+    descripcion:
+      "Accedé a los proveedores destacados, promociones y contactá directamente con ellos desde la plataforma.",
+  },
+];
+
+const ComoFuncionaSuscripcion = () => {
+  return (
+    <section className="como-funciona">
+      <h2>¿Cómo funciona la suscripción al Directorio?</h2>
+      <p className="subtitle">
+        Conocé los pasos para registrarte y empezar a aprovechar todos los beneficios
+        del Directorio de Proveedores.
+      </p>
+
+      <div className="pasos-grid">
+        {pasos.map((paso) => (
+          <div key={paso.numero} className="paso-card">
+            <div className="numero">{paso.numero}</div>
+            <h3 className="titulo">{paso.titulo}</h3>
+            <p className="descripcion">{paso.descripcion}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default ComoFuncionaSuscripcion;

@@ -1,0 +1,74 @@
+.servicios-destacados {
+  padding: 2em;
+  background: #fff;
+  text-align: center;
+}
+
+.servicios-destacados h2 {
+  font-size: 2rem;
+  margin-bottom: 0.25em;
+}
+
+.servicios-destacados .subtitle {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1.5em;
+}
+
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 1.5rem;
+}
+
+.servicio-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.25em;
+  text-align: left;
+  background: #fafafa;
+  transition: box-shadow 0.3s ease;
+}
+
+.servicio-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.servicio-card .categoria {
+  font-size: 0.85rem;
+  color: #888;
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
+}
+
+.servicio-card .nombre {
+  font-size: 1.2rem;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
+.servicio-card .descripcion {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 1em;
+}
+
+.btn-ver-mas,
+.btn-ver-todos {
+  background: #007bff;
+  color: #fff;
+  padding: 0.6em 1.2em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.btn-ver-mas:hover,
+.btn-ver-todos:hover {
+  background: #0056b3;
+}
+
+.btn-ver-todos {
+  margin-top: 2em;
+}
