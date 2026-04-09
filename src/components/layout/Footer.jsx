@@ -48,7 +48,8 @@ function Footer() {
 
       {/* Línea inferior */}
       <div className="footer-bottom">
-        <p>© 2024 ExtremoMinero. Todos los derechos reservados.</p>
+        <p>© 2026 ExtremoMinero. Todos los derechos reservados.</p>
+        
       </div>
 
     </footer>
