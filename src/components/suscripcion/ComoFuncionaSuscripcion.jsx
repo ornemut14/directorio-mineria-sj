@@ -26,11 +26,13 @@ const pasos = [
 const ComoFuncionaSuscripcion = () => {
   return (
     <section className="como-funciona">
-      <h2>¿Cómo funciona la suscripción al Directorio?</h2>
+      <div className="como-funciona-div-triangle">
+        <h2>¿Cómo funciona la suscripción al Directorio?</h2>
       <p className="subtitle">
         Conocé los pasos para registrarte y empezar a aprovechar todos los beneficios
         del Directorio de Proveedores.
       </p>
+      </div>
 
       <div className="pasos-grid">
         {pasos.map((paso) => (
