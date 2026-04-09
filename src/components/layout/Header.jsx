@@ -23,7 +23,7 @@ function Header() {
         <div className="header-actions">
   <button className="btn-register">Forma Parte</button>
 
-  <a href="#">
+  <a href="/login">
     <svg viewBox="0 0 24 24" fill="none">
       <circle cx="12" cy="6" r="4" stroke="#ffffff" strokeWidth="1.5"/>
       <path d="M20 17.5C20 15.0147 16.4183 13 12 13C7.58172 13 4 15.0147 4 17.5C4 19.9853 4 22 12 22" stroke="#ffffff" strokeWidth="1.5"/>
