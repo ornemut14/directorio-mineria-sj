@@ -114,9 +114,9 @@
 /* ── GRID ────────────────────────────────────────────────── */
 .categories-page-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 14px;
-  max-width: 1060px;
+  max-width: 80vw;
   margin: 0 auto;
   position: relative;
   z-index: 1;
@@ -134,7 +134,7 @@
   border: 1px solid rgba(0, 180, 216, 0.08);
   cursor: pointer;
   position: relative;
-  overflow: hidden;
+  width: 320px;
   text-align: left;
   transition:
     transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
@@ -187,8 +187,8 @@
 /* ── ICONO ───────────────────────────────────────────────── */
 .categories-page-icon {
   font-size: 22px;
-  width: 48px;
-  height: 48px;
+  width: 90px;
+  height: 90px;
   border-radius: 12px;
   background: linear-gradient(
     135deg,
@@ -231,7 +231,7 @@
 
 /* ── TEXTOS DE CARD ──────────────────────────────────────── */
 .categories-page-card h3 {
-  font-size: 14px;
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: -0.2px;
   color: #d0e8f0;
@@ -239,7 +239,7 @@
 }
 
 .categories-page-card p {
-  font-size: 12.5px;
+  font-size: 14px;
   line-height: 1.6;
   color: #3d5a6a;
   margin: 0;

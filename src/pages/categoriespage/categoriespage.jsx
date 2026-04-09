@@ -9,54 +9,55 @@ import {
 import BackButton from "../../components/backbutton/backbutton";
 
 function CategoriesPage() {
+  const icontam = 60
   const data = [
   {
-    icon: <FaTruck />,
+    icon: <FaTruck size={icontam} />,
     title: "Maquinaria Pesada",
     desc: "Equipos y maquinaria para operaciones mineras",
   },
   {
-    icon: <FaTools />,
+    icon: <FaTools size={icontam} />,
     title: "Repuestos",
     desc: "Piezas y componentes industriales",
   },
   {
-    icon: <FaHardHat />,
+    icon: <FaHardHat size={icontam} />,
     title: "Seguridad Industrial",
     desc: "Equipos de protección personal",
   },
   {
-    icon: <FaCogs />,
+    icon: <FaCogs size={icontam} />,
     title: "Servicios",
     desc: "Servicios especializados para minería",
   },
   {
-    icon: <FaFlask />,
+    icon: <FaFlask size={icontam} />,
     title: "Laboratorio",
     desc: "Análisis de muestras y ensayos mineralógicos",
   },
   {
-    icon: <FaBolt />,
+    icon: <FaBolt size={icontam} />,
     title: "Energía y Electricidad",
     desc: "Sistemas eléctricos e infraestructura energética",
   },
   {
-    icon: <FaWater />,
+    icon: <FaWater size={icontam} />,
     title: "Gestión del Agua",
     desc: "Tratamiento y manejo de recursos hídricos",
   },
   {
-    icon: <FaLeaf />,
+    icon: <FaLeaf size={icontam} />,
     title: "Medio Ambiente",
     desc: "Soluciones de remediación y sustentabilidad",
   },
   {
-    icon: <FaBuilding />,
+    icon: <FaBuilding size={icontam} />,
     title: "Infraestructura",
     desc: "Construcción y mantenimiento de instalaciones",
   },
   {
-    icon: <FaChartLine />,
+    icon: <FaChartLine size={icontam} />,
     title: "Consultoría",
     desc: "Asesoramiento técnico y planificación minera",
   },
