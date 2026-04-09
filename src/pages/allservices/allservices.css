@@ -1,7 +1,7 @@
-/* 🔙 BOTÓN BACK */
 .all-services-backbutton-container {
   width: fit-content;
   margin-left: auto;
+  margin-top: 20px; /* 👈 lo baja */
 }
 
 /* 🔎 SEARCHBAR PREMIUM */
