@@ -2,9 +2,9 @@ import "./Footer.css";
 
 function Footer() {
   return (
-    <footer className="footer">
+    <footer className="footer" >
 
-      <div className="footer-container">
+      <div className="footer-container" id="footer">
 
         {/* Columna 1 */}
         <div className="footer-col">

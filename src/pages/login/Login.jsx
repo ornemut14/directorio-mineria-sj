@@ -19,7 +19,7 @@ const Login = () => {
         </form>
 
         <p className="forgot-password">
-          ¿Olvidaste tu contraseña? <a href="#">Recuperar</a>
+          ¿Olvidaste tu contraseña? <a href="/forgot-password">Recuperar</a>
         </p>
       </div>
     </div>

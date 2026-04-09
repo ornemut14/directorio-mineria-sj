@@ -1,6 +1,6 @@
 .servicios-destacados {
   padding: 5em 2em;
-  background: #f8fafc; /* fondo claro como pediste */
+  background: #ffffff; /* fondo claro como pediste */
   text-align: center;
 }
 
@@ -14,7 +14,7 @@
 
 .servicios-destacados .subtitle {
   font-size: 1.1rem;
-  color: #64748b;
+  color: #292a2c;
   margin-bottom: 3em;
 }
 
