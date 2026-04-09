@@ -29,24 +29,44 @@ useEffect(() => {
   const grid = document.querySelector(".pasos-grid");
   const cards = document.querySelectorAll(".paso-card");
 
+  let hasAnimated = false;
+  let hasScrolled = false;
+
+  // Detecta si el usuario hizo scroll
+  const handleScroll = () => {
+    hasScrolled = true;
+  };
+
+  window.addEventListener("scroll", handleScroll);
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (
+          entry.isIntersecting &&
+          !hasAnimated &&
+          hasScrolled // 👈 CLAVE: solo si hubo scroll
+        ) {
+          hasAnimated = true;
+
           cards.forEach((card, index) => {
             setTimeout(() => {
               card.classList.add("visible");
-            }, index * 300); // 👈 efecto en cadena
+            }, index * 400); // efecto en cadena más claro
           });
         }
       });
     },
     {
-      threshold: 0.4,
+      threshold: 0.5,
     }
   );
 
   if (grid) observer.observe(grid);
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+  };
 }, []);
 
   return (
