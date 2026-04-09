@@ -6,6 +6,7 @@
 }
 
 .categories h2 {
+  color: white;
   font-size: 28px;
   margin-bottom: 10px;
 }
@@ -43,7 +44,7 @@
 .icon {
   font-size: 35px;
   margin-bottom: 15px;
-  color: #758ead;
+  color: #00b4d8;
 }
 
 /* TEXTOS */
@@ -65,9 +66,10 @@
 }
 
 .categories-btn button {
-  background: #1c6880;
+  background: #00b4d81f;
   color: white;
-  border: none;
+  border-style: outset;
+  border-color: white;
   padding: 12px 25px;
   border-radius: 25px;
   font-size: 14px;
