@@ -4,21 +4,86 @@
   top: 0;
   width: 100%;
   z-index: 10;
- 
 }
 
+/* CONTENEDOR */
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  height: 80px; /* 🔥 altura fija */
-  padding: 0 50px; /* sacamos el padding vertical */
+  height: 80px; /* altura fija */
+  padding: 0 50px;
 
   background: rgba(10, 20, 50, 0.4);
   backdrop-filter: blur(10px);
 }
 
+/* LOGO */
+.logo img {
+  height: 50px;
+  object-fit: contain;
+}
+
+/* NAVEGACIÓN */
+.nav a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: #00b4d8;
+}
+
+/* BOTÓN FORMA PARTE */
+.btn-register {
+  background: #00b4d8;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-register:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,180,216,0.3);
+}
+
+/* ICONO SVG */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+/* ICONO SVG */
+.header-actions a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+
+  margin-left: 15px; /* 🔹 agrega espacio desde el botón */
+}
+.header-actions a svg {
+  width: 24px;
+  height: 24px;
+  stroke: #ffffff;
+}
+
+.header-actions a:hover {
+  background: rgba(0,180,216,0.2);
+  transform: scale(1.1);
+}
 /* LOGO */
 .logo {
   display: flex;

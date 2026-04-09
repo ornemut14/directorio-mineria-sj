@@ -1,6 +1,6 @@
 .como-funciona {
   padding: 3em 2em;
-  background: #f7f9fc;
+  background: #ffffff;
   text-align: center;
 }
 
@@ -12,7 +12,7 @@
 
 .como-funciona .como-funciona-div-triangle .subtitle {
   font-size: 1rem;
-  color: white;
+  color: #cbd5e1;
   margin-bottom: 2em;
 }
 
@@ -23,46 +23,183 @@
   height: 200px;
   clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 0 50%);
 }
+
 .como-funciona-div-triangle {
   width: 100vw; 
   margin-left: calc(-50vw + 50%); 
 }
 
+.como-funciona {
+  padding: 5em 1em;
+  background: #ffffff;
+  text-align: center;
+}
+
+/* GRID */
 .pasos-grid {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
+  gap: 3rem;
+  padding-top: 4rem;
 }
 
+/* LINEA BASE */
+.pasos-grid::before {
+  content: "";
+  position: absolute;
+  top: 50px;
+  left: 10%;
+  width: 80%;
+  height: 3px;
+  background: rgba(0, 180, 216, 0.2);
+  border-radius: 2px;
+}
+
+/* LINEA ANIMADA */
+.pasos-grid::after {
+  content: "";
+  position: absolute;
+  top: 50px;
+  left: 10%;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #00b4d8, #171e3a);
+  border-radius: 2px;
+
+  animation: drawLine 2s ease forwards;
+}
+
+@keyframes drawLine {
+  from { width: 0%; }
+  to { width: 80%; }
+}
+
+/* CARD */
 .paso-card {
-  background: #fff;
-  border-radius: 8px;
-  padding: 1.5em;
-  width: 250px;
+  position: relative;
+  background: rgba(23, 30, 58, 0.05);
+  backdrop-filter: blur(12px);
+
+  border-radius: 20px;
+  padding: 2em 1.5em;
+  width: 260px;
+
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
+
+  border: 1px solid rgba(0, 180, 216, 0.15);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+
+  transition: all 0.35s ease;
+  overflow: hidden;
+
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+
+  animation: fadeUp 0.6s ease forwards;
 }
 
+/* DELAYS */
+.paso-card:nth-child(1) { animation-delay: 0.4s; }
+.paso-card:nth-child(2) { animation-delay: 0.8s; }
+.paso-card:nth-child(3) { animation-delay: 1.2s; }
+.paso-card:nth-child(4) { animation-delay: 1.6s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* HOVER */
 .paso-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px) scale(1.03);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.1),
+    0 0 25px rgba(0, 180, 216, 0.25);
 }
 
-.paso-card .numero {
-  font-size: 2rem;
+/* GLOW */
+.paso-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(0, 180, 216, 0.2), transparent);
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.paso-card:hover::after {
+  opacity: 1;
+}
+
+/* NUMERO */
+.numero {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.5rem;
   font-weight: bold;
-  color: #007bff;
-  margin-bottom: 0.5em;
+  color: white;
+
+  border-radius: 50%;
+
+  background: linear-gradient(135deg, #00b4d8, #171e3a);
+
+  box-shadow: 0 5px 15px rgba(0, 180, 216, 0.4);
 }
 
-.paso-card .titulo {
+/* TEXTO */
+.titulo {
   font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 0.5em;
+  color: #19212c;
 }
 
-.paso-card .descripcion {
+.descripcion {
   font-size: 0.95rem;
-  color: #555;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* PUNTO */
+.paso-card::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+
+  background: linear-gradient(135deg, #00b4d8, #171e3a);
+
+  box-shadow: 0 0 10px rgba(0,180,216,0.6);
+
+  animation: popDot 0.4s ease forwards;
+}
+
+/* DELAY PUNTOS */
+.paso-card:nth-child(1)::before { animation-delay: 0.4s; }
+.paso-card:nth-child(2)::before { animation-delay: 0.8s; }
+.paso-card:nth-child(3)::before { animation-delay: 1.2s; }
+.paso-card:nth-child(4)::before { animation-delay: 1.6s; }
+
+@keyframes popDot {
+  to {
+    transform: translateX(-50%) scale(1);
+  }
 }

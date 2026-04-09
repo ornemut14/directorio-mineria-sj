@@ -1,52 +1,64 @@
 .testimonios-usuarios {
-  padding: 3em 2em;
-  background: #f1f5f9;
+  padding: 5em 1.5em;
+  background: #ffffff; /* 👈 fondo blanco */
   text-align: center;
 }
 
+/* TITULOS */
 .testimonios-usuarios h2 {
-  font-size: 2rem;
-  margin-bottom: 0.25em;
+  font-size: 2.2rem;
+  margin-bottom: 0.3em;
+  color: #19212c; /* oscuro para contraste */
 }
 
 .testimonios-usuarios .subtitle {
   font-size: 1rem;
-  color: #555;
-  margin-bottom: 2em;
+  color: #64748b;
+  margin-bottom: 3em;
 }
 
+/* GRID */
 .testimonios-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2rem;
-  justify-items: center;
+  gap: 2.5rem;
 }
 
+/* CARD */
 .testimonio-card {
-  background: #fff;
+  background: #19212c;
   border-radius: 8px;
   padding: 1.5em;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
   text-align: left;
   transition: transform 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.05);
 }
 
 .testimonio-card:hover {
   transform: translateY(-5px);
 }
 
+/* MENSAJE */
 .testimonio-card .mensaje {
   font-style: italic;
-  color: #333;
+  color: #e2e8f0;
   margin-bottom: 1em;
 }
 
+/* USUARIO */
 .usuario-info .nombre {
   font-weight: bold;
   margin-bottom: 0.25em;
+  color: #ffffff;
 }
 
 .usuario-info .cargo {
   font-size: 0.9rem;
-  color: #777;
+  color: #94a3b8;
+}
+
+/* ESTRELLAS */
+.estrellas {
+  color: #00b4d8;
 }
