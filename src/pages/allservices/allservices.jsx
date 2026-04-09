@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./allservices.css";
 import { useNavigate } from "react-router-dom";
 import BackButton from "../../components/backbutton/backbutton";
+import { useStore } from "../../store/use-store";
 
 const servicios = [
   {
@@ -64,6 +65,12 @@ const servicios = [
     descripcion:
       "Electrosur Ingeniería provee soluciones eléctricas industriales y mantenimiento.",
   },
+  {
+    categoria: "Maquinaria Pesada",
+    nombre: "Electrosur Ingeniería",
+    descripcion:
+      "Electrosur Ingeniería provee soluciones eléctricas industriales y mantenimiento.",
+  }
 ];
 
 const Allservices = () => {
@@ -74,11 +81,18 @@ const Allservices = () => {
     "Todas las categorias",
   ]);
 
+  const categorypersist = useStore.getState().categorypersist
+  const {setCategorypersist} = useStore()
+
   const navigator = useNavigate();
 
   // ✅ CARGA INICIAL
   useEffect(() => {
     setListsh(servicios);
+    if(categorypersist != null){
+      setCategorias(categorypersist)
+      setCategorypersist(null)
+    }
   }, []);
 
   // ✅ CATEGORÍAS SIN DUPLICADOS
