@@ -4,6 +4,7 @@ import Home from "./pages/home/home";
 import Allservices from "./pages/allservices/allservices";
 import Login from "./pages/login/Login";
 import CategoriesPage from "./pages/categoriespage/categoriespage";
+import ForgotPassword from "./pages/login/ForgotPassword";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/servicios" element={<Allservices />} />
         <Route path="/login" element={<Login />} />
         <Route path="/categorias" element={<CategoriesPage />} />
+        <Route path="/forgot-password" element={<ForgotPassword/>} />
       </Routes>
     </BrowserRouter>
   );
