@@ -1,8 +1,22 @@
-// TestimoniosUsuarios.jsx
 import React from "react";
 import "./TestimoniosUsuarios.css";
 
 const testimonios = [
+  {
+    nombre: "Carlos Méndez",
+    cargo: "Gerente de Compras",
+    empresa: "Minera Austral",
+    mensaje:
+      "Gracias al Directorio encontré proveedores confiables y mejoré la logística de mi empresa. ¡Totalmente recomendado!",
+  },
+  {
+    nombre: "María López",
+    cargo: "Responsable de Suministros",
+    empresa: "Exploraciones Patagónicas",
+    mensaje:
+      "La plataforma es muy intuitiva y facilita la conexión directa con proveedores especializados en minería.",
+  },
+
   {
     nombre: "Carlos Méndez",
     cargo: "Gerente de Compras",
@@ -26,6 +40,15 @@ const testimonios = [
   },
 ];
 
+// función para sacar iniciales
+const getIniciales = (nombre) => {
+  return nombre
+    .split(" ")
+    .map((n) => n[0])
+    .join("")
+    .substring(0, 2);
+};
+
 const TestimoniosUsuarios = () => {
   return (
     <section className="testimonios-usuarios">
@@ -37,10 +60,28 @@ const TestimoniosUsuarios = () => {
       <div className="testimonios-grid">
         {testimonios.map((t, index) => (
           <div key={index} className="testimonio-card">
-            <p className="mensaje">"{t.mensaje}"</p>
+
+            {/* ⭐ estrellas */}
+            <div className="estrellas">★★★★★</div>
+
+            {/* 💬 mensaje */}
+            <p className="mensaje">{t.mensaje}</p>
+
+            {/* 👤 usuario */}
             <div className="usuario-info">
-              <h4 className="nombre">{t.nombre}</h4>
-              <p className="cargo">{t.cargo} - {t.empresa}</p>
+
+              {/* avatar con iniciales */}
+              <div className="avatar">
+                {getIniciales(t.nombre)}
+              </div>
+
+              <div>
+                <div className="nombre">{t.nombre}</div>
+                <div className="cargo">
+                  {t.cargo} - {t.empresa}
+                </div>
+              </div>
+
             </div>
           </div>
         ))}
