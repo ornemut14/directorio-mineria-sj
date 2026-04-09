@@ -6,11 +6,13 @@ import Login from "./pages/login/Login";
 import CategoriesPage from "./pages/categoriespage/categoriespage";
 import ForgotPassword from "./pages/login/ForgotPassword";
 import Footer from "./components/layout/Footer";
+import Header from "./components/layout/Header";
 
 
 function App() {
   return (
     <BrowserRouter>
+    <Header /> 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/servicios" element={<Allservices />} />

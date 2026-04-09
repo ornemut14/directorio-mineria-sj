@@ -75,6 +75,7 @@
   padding: 15px 25px;
   cursor: pointer;
   font-weight: bold;
+  color: white;
 }
 
 .search-box button:hover {
