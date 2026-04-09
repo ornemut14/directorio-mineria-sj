@@ -1,7 +1,9 @@
 // ServiciosDestacados.jsx
-import React from "react";
+import React, { useEffect } from "react";
 import "./ServiciosDestacados.css";
 import { useNavigate } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const servicios = [
   {
@@ -57,26 +59,46 @@ const servicios = [
 const ServiciosDestacados = () => {
   const navigator = useNavigate();
 
+  // 🔥 AOS INIT CORRECTO
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: "ease-out-cubic",
+    });
+  }, []);
+
   return (
     <section className="servicios-destacados">
-      <h2>Servicios destacados</h2>
-      <p className="subtitle">
+      <h2 data-aos="fade-up">Servicios destacados</h2>
+
+      <p className="subtitle" data-aos="fade-up" data-aos-delay="100">
         Descubrí los principales proveedores de todos los rubros y conectá
         directamente con ellos.
       </p>
 
       <div className="servicios-grid">
         {servicios.map((servicio, index) => (
-          <div key={index} className="servicio-card">
+          <div
+            key={index}
+            className="servicio-card"
+            data-aos="fade-up"
+            data-aos-delay={index * 100}
+          >
             <h4 className="categoria">{servicio.categoria}</h4>
             <h3 className="nombre">{servicio.nombre}</h3>
             <p className="descripcion">{servicio.descripcion}</p>
-            <button className="btn-ver-mas">Ver más</button>
+            <button className="btn-ver-mas">Ver más →</button>
           </div>
         ))}
       </div>
 
-      <button className="btn-ver-todos" onClick={() => navigator("/servicios")}>
+      <button
+        className="btn-ver-todos"
+        data-aos="fade-up"
+        data-aos-delay="200"
+        onClick={() => navigator("/servicios")}
+      >
         Ver todos
       </button>
     </section>

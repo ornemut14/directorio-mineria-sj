@@ -4,16 +4,17 @@
   top: 0;
   width: 100%;
   z-index: 10;
+ 
 }
 
-/* CONTENEDOR */
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 50px;
 
-  /* efecto glass */
+  height: 80px; /* 🔥 altura fija */
+  padding: 0 50px; /* sacamos el padding vertical */
+
   background: rgba(10, 20, 50, 0.4);
   backdrop-filter: blur(10px);
 }
@@ -24,13 +25,10 @@
   flex-direction: column;
   color: white;
 }
-
-.logo-top {
-  font-size: 14px;
-  font-weight: bold;
-  letter-spacing: 1px;
+.logo-top img {
+  height: 120px;
+  width: auto;
 }
-
 .logo-bottom {
   font-size: 18px;
   font-weight: bold;

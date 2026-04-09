@@ -23,6 +23,10 @@
   height: 200px;
   clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 0 50%);
 }
+.como-funciona-div-triangle {
+  width: 100vw; 
+  margin-left: calc(-50vw + 50%); 
+}
 
 .pasos-grid {
   display: flex;

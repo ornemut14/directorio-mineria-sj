@@ -7,8 +7,7 @@ function Header() {
         
         {/* Logo */}
         <div className="logo">
-          <span className="logo-top">DIRECTORIO DE MINERÍA</span>
-          <span className="logo-bottom">SAN JUAN</span>
+          <span className="logo-top"><img src="/public/logo.png" alt="Logo" /></span>
         </div>
 
         {/* Navegación */}

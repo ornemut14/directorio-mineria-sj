@@ -52,80 +52,19 @@ const servicios = [
     descripcion:
       "Deseado Seguridad brinda venta y recarga de extintores, EPP y soluciones en seguridad industrial desde Puerto Deseado, Santa Cruz.",
   },
-  // --- Nuevos registros ---
   {
     categoria: "Construcción e Infraestructura",
     nombre: "Constructora Austral SRL",
     descripcion:
-      "Constructora Austral SRL ejecuta obras civiles, viales e industriales en la Patagonia, con amplia experiencia en proyectos mineros y de infraestructura en Santa Cruz.",
-  },
-  {
-    categoria: "Transporte y logística",
-    nombre: "Patagonia Express Logística",
-    descripcion:
-      "Patagonia Express Logística brinda servicios de transporte de carga y personal, distribución y logística de última milla para empresas del sector extractivo en Santa Cruz.",
-  },
-  {
-    categoria: "Suministros Industriales",
-    nombre: "Ferretería Industrial del Sur",
-    descripcion:
-      "Ferretería Industrial del Sur provee herramientas, materiales de construcción y suministros industriales a empresas y contratistas de la región patagónica.",
-  },
-  {
-    categoria: "Medio Ambiente y Sostenibilidad",
-    nombre: "EcoSur Servicios Ambientales",
-    descripcion:
-      "EcoSur Servicios Ambientales ofrece gestión de residuos, estudios de impacto ambiental y consultoría de sostenibilidad para la industria minera y de hidrocarburos en Santa Cruz.",
-  },
-  {
-    categoria: "Salud y Seguridad Ocupacional",
-    nombre: "MedPat Salud Laboral",
-    descripcion:
-      "MedPat Salud Laboral brinda servicios de medicina del trabajo, exámenes preocupacionales y capacitación en seguridad e higiene para empresas de la Patagonia.",
-  },
-  {
-    categoria: "Comunicación y Servicios Digitales",
-    nombre: "Sur Digital Agency",
-    descripcion:
-      "Sur Digital Agency diseña y desarrolla sitios web, aplicaciones y estrategias de marketing digital para empresas industriales y pymes del sur argentino.",
-  },
-  {
-    categoria: "Maquinarias y Equipos",
-    nombre: "Técnica Patagónica S.A.",
-    descripcion:
-      "Técnica Patagónica S.A. comercializa, alquila y repara equipos de perforación, generadores y maquinaria pesada para la industria minera y petrolera de Santa Cruz.",
-  },
-  {
-    categoria: "Construcción e Infraestructura",
-    nombre: "Montajes y Estructuras del Sur",
-    descripcion:
-      "Montajes y Estructuras del Sur realiza montaje industrial, estructuras metálicas y trabajos en altura para plantas, minas e instalaciones en la Patagonia.",
+      "Constructora Austral SRL ejecuta obras civiles, viales e industriales en la Patagonia.",
   },
   {
     categoria: "Energía",
     nombre: "Electrosur Ingeniería",
     descripcion:
-      "Electrosur Ingeniería provee soluciones eléctricas industriales, instalaciones de media y alta tensión, y mantenimiento preventivo para el sector minero y energético.",
+      "Electrosur Ingeniería provee soluciones eléctricas industriales y mantenimiento.",
   },
-  {
-    categoria: "Suministros Industriales",
-    nombre: "Lubricantes Patagonia",
-    descripcion:
-      "Lubricantes Patagonia distribuye aceites, lubricantes y productos de mantenimiento de las principales marcas para flotas vehiculares e industrias del sur argentino.",
-  },
-  {
-    categoria: "Capacitación y Consultoría",
-    nombre: "Capacitar Sur",
-    descripcion:
-      "Capacitar Sur ofrece formación profesional, cursos técnicos y consultoría organizacional orientados a empresas del sector minero, petrolero y de construcción en Santa Cruz.",
-  },
-  {
-    categoria: "Transporte y logística",
-    nombre: "Remises y Traslados Austral",
-    descripcion:
-      "Remises y Traslados Austral brinda servicios de traslado de personal, transfers aeroportuarios y movilidad corporativa para empresas e instituciones en la Patagonia.",
-  },
-]
+];
 
 const Allservices = () => {
   const [listsh, setListsh] = useState([]);
@@ -134,77 +73,58 @@ const Allservices = () => {
   const [listacategorias, setListacategorias] = useState([
     "Todas las categorias",
   ]);
+
   const navigator = useNavigate();
 
+  // ✅ CARGA INICIAL
+  useEffect(() => {
+    setListsh(servicios);
+  }, []);
+
+  // ✅ CATEGORÍAS SIN DUPLICADOS
+  useEffect(() => {
+    const categoriasUnicas = [
+      "Todas las categorias",
+      ...new Set(servicios.map((s) => s.categoria)),
+    ];
+    setListacategorias(categoriasUnicas);
+  }, []);
+
+  // ✅ FILTRO POR CATEGORÍA
   const filterbycategory = (lista) => {
-    if (categorias === "Todas las categorias") {
-      return lista;
-    } else {
-      let templist = [];
-      let tam = lista.length;
-      let i = 0;
-      for (i = 0; i < tam; i++) {
-        let tempelement = lista[i];
-        if (tempelement.categoria === categorias) {
-          templist.push(tempelement);
-        }
-      }
-      return templist;
-    }
+    if (categorias === "Todas las categorias") return lista;
+    return lista.filter((item) => item.categoria === categorias);
   };
 
+  // ✅ BUSCADOR
   const handleSearch = (event) => {
-    console.log(event.target.value, "escrito");
     setSearchword(event.target.value.toLowerCase());
   };
 
-  /* Recordar poner en este useEffect la logica para el hook del endpoint */
-  /* Hasta ahora solo toma las categorias de los servicios existentes */
+  // ✅ FILTRADO COMPLETO
   useEffect(() => {
-    let tempcat = ["Todas las categorias"];
-    let i = 0;
-    let tam = servicios.length;
-    for (i = 0; i < tam; i++) {
-      let tempcat1 = servicios[i].categoria;
-      let bool = false;
-      let j = 0;
-      let tam2 = tempcat.length;
-      while (j < tam2 && !bool) {
-        if (tempcat[i] === tempcat1) {
-          bool = true;
-        }
-        j = j + 1;
-      }
+    let templist = servicios;
 
-      if (!bool) {
-        tempcat.push(tempcat1);
-      }
-    }
-    setListacategorias(tempcat);
-  }, []);
-
-  useEffect(() => {
-    let templist = [];
-    if (searchword === "") {
-      templist = templist.concat(servicios);
-      templist = filterbycategory(templist);
-      setListsh(templist);
-    } else {
-      let tam = servicios.length;
-      let i = 0;
-      for (i = 0; i < tam; i++) {
-        let tempservice = servicios[i];
-        let tempname = tempservice.nombre
+    // filtro por texto (nombre + categoria + descripcion)
+    if (searchword !== "") {
+      templist = templist.filter((item) => {
+        const text = (
+          item.nombre +
+          item.categoria +
+          item.descripcion
+        )
           .normalize("NFD")
           .replace(/[\u0300-\u036f]/g, "")
           .toLowerCase();
-        if (tempname.includes(searchword)) {
-          templist.push(tempservice);
-        }
-      }
-      templist = filterbycategory(templist);
-      setListsh(templist);
+
+        return text.includes(searchword);
+      });
     }
+
+    // filtro por categoria
+    templist = filterbycategory(templist);
+
+    setListsh(templist);
   }, [searchword, categorias]);
 
   return (
@@ -212,12 +132,14 @@ const Allservices = () => {
       <div className="all-services-backbutton-container">
         <BackButton onClick={() => navigator("/")}>Volver</BackButton>
       </div>
+
       <h2>Servicios</h2>
       <p className="all-services-subtitle">
         Descubrí los principales proveedores de todos los rubros y conectá
         directamente con ellos.
       </p>
 
+      {/* 🔎 BUSCADOR */}
       <div className="allservices-searchbar">
         <div className="allservices-searchbar-group">
           <p>buscar</p>
@@ -225,10 +147,10 @@ const Allservices = () => {
             className="allservices-searchword"
             type="text"
             placeholder="Buscar por nombre..."
-            onChange={(e) => handleSearch(e)}
+            onChange={handleSearch}
           />
         </div>
-        <div className="divider" />
+
         <div className="allservices-searchbar-group">
           <p>Seleccionar categoria</p>
           <select
@@ -237,24 +159,36 @@ const Allservices = () => {
             onChange={(e) => setCategorias(e.target.value)}
           >
             {listacategorias.map((obj, index) => (
-              <option className="allservices-categories-options" key={index}>
-                {obj}
-              </option>
+              <option key={index}>{obj}</option>
             ))}
           </select>
         </div>
       </div>
 
+      {/* 📦 GRID */}
       <div className="all-services-servicios-grid">
         {listsh.map((servicio, index) => (
           <div key={index} className="all-services-servicio-card">
-            <h4 className="all-services-categoria">{servicio.categoria}</h4>
+            <h4 className="all-services-categoria">
+              {servicio.categoria}
+            </h4>
             <h3 className="all-services-nombre">{servicio.nombre}</h3>
-            <p className="all-services-descripcion">{servicio.descripcion}</p>
-            <button className="all-services-btn-ver-mas">Ver más</button>
+            <p className="all-services-descripcion">
+              {servicio.descripcion}
+            </p>
+            <button className="all-services-btn-ver-mas">
+              Ver más →
+            </button>
           </div>
         ))}
       </div>
+
+      {/* 🚨 SIN RESULTADOS */}
+      {listsh.length === 0 && (
+        <p style={{ color: "#cbd5f5", marginTop: "2rem" }}>
+          No se encontraron resultados 😕
+        </p>
+      )}
     </div>
   );
 };
