@@ -52,7 +52,80 @@ const servicios = [
     descripcion:
       "Deseado Seguridad brinda venta y recarga de extintores, EPP y soluciones en seguridad industrial desde Puerto Deseado, Santa Cruz.",
   },
-];
+  // --- Nuevos registros ---
+  {
+    categoria: "Construcción e Infraestructura",
+    nombre: "Constructora Austral SRL",
+    descripcion:
+      "Constructora Austral SRL ejecuta obras civiles, viales e industriales en la Patagonia, con amplia experiencia en proyectos mineros y de infraestructura en Santa Cruz.",
+  },
+  {
+    categoria: "Transporte y logística",
+    nombre: "Patagonia Express Logística",
+    descripcion:
+      "Patagonia Express Logística brinda servicios de transporte de carga y personal, distribución y logística de última milla para empresas del sector extractivo en Santa Cruz.",
+  },
+  {
+    categoria: "Suministros Industriales",
+    nombre: "Ferretería Industrial del Sur",
+    descripcion:
+      "Ferretería Industrial del Sur provee herramientas, materiales de construcción y suministros industriales a empresas y contratistas de la región patagónica.",
+  },
+  {
+    categoria: "Medio Ambiente y Sostenibilidad",
+    nombre: "EcoSur Servicios Ambientales",
+    descripcion:
+      "EcoSur Servicios Ambientales ofrece gestión de residuos, estudios de impacto ambiental y consultoría de sostenibilidad para la industria minera y de hidrocarburos en Santa Cruz.",
+  },
+  {
+    categoria: "Salud y Seguridad Ocupacional",
+    nombre: "MedPat Salud Laboral",
+    descripcion:
+      "MedPat Salud Laboral brinda servicios de medicina del trabajo, exámenes preocupacionales y capacitación en seguridad e higiene para empresas de la Patagonia.",
+  },
+  {
+    categoria: "Comunicación y Servicios Digitales",
+    nombre: "Sur Digital Agency",
+    descripcion:
+      "Sur Digital Agency diseña y desarrolla sitios web, aplicaciones y estrategias de marketing digital para empresas industriales y pymes del sur argentino.",
+  },
+  {
+    categoria: "Maquinarias y Equipos",
+    nombre: "Técnica Patagónica S.A.",
+    descripcion:
+      "Técnica Patagónica S.A. comercializa, alquila y repara equipos de perforación, generadores y maquinaria pesada para la industria minera y petrolera de Santa Cruz.",
+  },
+  {
+    categoria: "Construcción e Infraestructura",
+    nombre: "Montajes y Estructuras del Sur",
+    descripcion:
+      "Montajes y Estructuras del Sur realiza montaje industrial, estructuras metálicas y trabajos en altura para plantas, minas e instalaciones en la Patagonia.",
+  },
+  {
+    categoria: "Energía",
+    nombre: "Electrosur Ingeniería",
+    descripcion:
+      "Electrosur Ingeniería provee soluciones eléctricas industriales, instalaciones de media y alta tensión, y mantenimiento preventivo para el sector minero y energético.",
+  },
+  {
+    categoria: "Suministros Industriales",
+    nombre: "Lubricantes Patagonia",
+    descripcion:
+      "Lubricantes Patagonia distribuye aceites, lubricantes y productos de mantenimiento de las principales marcas para flotas vehiculares e industrias del sur argentino.",
+  },
+  {
+    categoria: "Capacitación y Consultoría",
+    nombre: "Capacitar Sur",
+    descripcion:
+      "Capacitar Sur ofrece formación profesional, cursos técnicos y consultoría organizacional orientados a empresas del sector minero, petrolero y de construcción en Santa Cruz.",
+  },
+  {
+    categoria: "Transporte y logística",
+    nombre: "Remises y Traslados Austral",
+    descripcion:
+      "Remises y Traslados Austral brinda servicios de traslado de personal, transfers aeroportuarios y movilidad corporativa para empresas e instituciones en la Patagonia.",
+  },
+]
 
 const Allservices = () => {
   const [listsh, setListsh] = useState([]);
