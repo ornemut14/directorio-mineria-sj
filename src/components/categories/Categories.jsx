@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+import { useStore } from "../../store/use-store";
 import "./Categories.css";
 import { FaTruck, FaTools, FaHardHat, FaCogs } from "react-icons/fa";
 
@@ -25,6 +27,13 @@ function Categories() {
     },
   ];
 
+  const {setCategorypersist} = useStore()
+  const navigator = useNavigate()
+  const handleRedirect = (cate) =>{
+    setCategorypersist(cate)
+    navigator("/servicios")
+  }
+
   return (
     <section className="categories">
       <h2>Explora nuestras categorías</h2>
@@ -34,7 +43,7 @@ function Categories() {
 
       <div className="categories-grid">
         {data.map((cat, index) => (
-          <div className="card" key={index}>
+          <div className="card" key={index} onClick={() => handleRedirect(cat.title)}>
             <div className="icon">{cat.icon}</div>
             <h3>{cat.title}</h3>
             <p>{cat.desc}</p>
@@ -44,7 +53,7 @@ function Categories() {
 
       {/* Botón ver todas las categorías */}
       <div className="categories-btn">
-        <button>Ver todas las categorías</button>
+        <button onClick={() => navigator("/categorias")}>Ver todas las categorías</button>
       </div>
     </section>
   );
