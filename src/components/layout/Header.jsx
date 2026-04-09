@@ -12,11 +12,11 @@ function Header() {
 
         {/* Navegación */}
         <nav className="nav">
-          <a href="#">Inicio</a>
-          <a href="#">Categorías</a>
+          <a href="/">Inicio</a>
+          <a href="/categorias">Categorías</a>
           <a href="#">Eventos</a>
           <a href="#">Capacitaciones</a>
-          <a href="#">Contacto</a>
+          <a href="#footer">Contacto</a>
         </nav>
 
         {/* Botón */}

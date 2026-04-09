@@ -5,6 +5,7 @@ import Allservices from "./pages/allservices/allservices";
 import Login from "./pages/login/Login";
 import CategoriesPage from "./pages/categoriespage/categoriespage";
 import ForgotPassword from "./pages/login/ForgotPassword";
+import Footer from "./components/layout/Footer";
 
 
 function App() {
