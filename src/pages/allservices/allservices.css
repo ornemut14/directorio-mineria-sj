@@ -1,0 +1,150 @@
+
+.all-services-backbutton-container{
+  width: fit-content;
+  margin-left: auto;
+}
+
+/*buscador y seleccionables */
+
+.allservices-searchbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  background: #e6f1fb;
+  border: 0.5px solid #85b7eb;
+  border-radius: 12px;
+  padding: 0.85rem 1.2rem;
+  width: fit-content;
+}
+
+.allservices-searchbar-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.allservices-searchbar p {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #185fa5;
+}
+
+.allservices-searchword {
+  width: 180px;
+  height: 34px;
+  padding: 0 10px;
+  font-size: 14px;
+  color: #042c53;
+  background: #fff;
+  border: 1.5px solid #85b7eb;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.18s, box-shadow 0.18s;
+  box-sizing: border-box;
+}
+
+.allservices-categories {
+  width: 180px;
+  height: 34px;
+  padding: 0 28px 0 10px;
+  font-size: 14px;
+  color: #042c53;
+  background: #fff url("...svg arrow...") no-repeat right 9px center;
+  border: 1.5px solid #85b7eb;
+  border-radius: 8px;
+  appearance: none;
+  outline: none;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.allservices-searchword:hover,
+.allservices-categories:hover  { border-color: #378add; }
+
+.allservices-searchword:focus,
+.allservices-categories:focus {
+  border-color: #185fa5;
+  box-shadow: 0 0 0 3px #b5d4f455;
+}
+
+/* Seccion servicios */
+.all-services-servicios-destacados {
+  padding: 2em;
+  background: #0b1a33;
+  text-align: center;
+}
+
+.all-services-servicios-destacados h2 {
+  font-size: 2rem;
+  margin-bottom: 0.25em;
+  color: white;
+}
+
+.all-services-servicios-destacados .all-services-subtitle {
+  font-size: 1rem;
+  color: #ffffff;
+  margin-bottom: 1.5em;
+}
+
+.all-services-servicios-grid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 1.5rem;
+}
+
+.all-services-servicio-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.25em;
+  text-align: left;
+  background: #fafafa;
+  transition: box-shadow 0.3s ease;
+}
+
+.all-services-servicio-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.all-services-servicio-card .all-services-categoria {
+  font-size: 0.85rem;
+  color: #888;
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
+}
+
+.all-services-servicio-card .all-services-nombre {
+  font-size: 1.2rem;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
+.all-services-servicio-card .all-services-descripcion {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 1em;
+}
+
+.all-services-btn-ver-mas,
+.all-services-btn-ver-todos {
+  background: #007bff;
+  color: #fff;
+  padding: 0.6em 1.2em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.all-services-btn-ver-mas:hover,
+.all-services-btn-ver-todos:hover {
+  background: #0056b3;
+}
+
+.all-services-btn-ver-todos {
+  margin-top: 2em;
+}

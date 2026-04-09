@@ -1,0 +1,10 @@
+.backbutton {
+  background: linear-gradient(90deg, #1e90ff, #0066ff);
+  border: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  color: white;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.3s;
+}

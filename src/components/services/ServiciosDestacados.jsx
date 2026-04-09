@@ -1,6 +1,7 @@
 // ServiciosDestacados.jsx
 import React from "react";
 import "./ServiciosDestacados.css";
+import { useNavigate } from "react-router-dom";
 
 const servicios = [
   {
@@ -54,6 +55,8 @@ const servicios = [
 ];
 
 const ServiciosDestacados = () => {
+  const navigator = useNavigate();
+
   return (
     <section className="servicios-destacados">
       <h2>Servicios destacados</h2>
@@ -73,7 +76,9 @@ const ServiciosDestacados = () => {
         ))}
       </div>
 
-      <button className="btn-ver-todos">Ver todos</button>
+      <button className="btn-ver-todos" onClick={() => navigator("/servicios")}>
+        Ver todos
+      </button>
     </section>
   );
 };
