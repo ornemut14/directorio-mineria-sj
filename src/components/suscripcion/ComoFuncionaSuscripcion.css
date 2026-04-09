@@ -4,15 +4,24 @@
   text-align: center;
 }
 
-.como-funciona h2 {
+.como-funciona .como-funciona-div-triangle h2 {
   font-size: 2rem;
+  color: white;
   margin-bottom: 0.25em;
 }
 
-.como-funciona .subtitle {
+.como-funciona .como-funciona-div-triangle .subtitle {
   font-size: 1rem;
-  color: #555;
+  color: white;
   margin-bottom: 2em;
+}
+
+.como-funciona-div-triangle{
+  padding-top: 60px;
+  margin-bottom: 90px;
+  background-color: #171e3a;
+  height: 200px;
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 0 50%);
 }
 
 .pasos-grid {
