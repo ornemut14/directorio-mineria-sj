@@ -9,8 +9,6 @@ import Header from "./components/layout/Header";
 import EventosPage from "./pages/eventospage/EventosPage";
 import CapacitacionesPage from "./pages/capacitacionespage/CapacitacionesPage";
 import Usuarios from "./pages/Usuarios";
-import Admin from "./pages/admin/Admin";
-import Proveedor from "./pages/proveedor/Proveedor";
 import AdminLayout from "./pages/admin/AdminLayout";
 import EventosList from "./pages/admin/eventos/EventosList";
 import EventosForm from "./pages/admin/eventos/EventosForm";
@@ -30,7 +28,6 @@ function App() {
         <Route path="/eventos" element={<EventosPage />} />
         <Route path="/capacitaciones" element={<CapacitacionesPage />} />
         <Route path="/usuarios" element={<Usuarios />} />
-        <Route path="/admin" element={<Admin />} />
         <Route path="/admin" element={<AdminLayout/>}>
           <Route path="eventos" element={<EventosList />} />
           <Route path="eventos/nuevo" element={<EventosForm />} />
