@@ -8,6 +8,9 @@ import ForgotPassword from "./pages/login/ForgotPassword";
 import Header from "./components/layout/Header";
 import EventosPage from "./pages/eventospage/EventosPage";
 import CapacitacionesPage from "./pages/capacitacionespage/CapacitacionesPage";
+import Usuarios from "./pages/Usuarios";
+import Admin from "./pages/admin/Admin";
+import Proveedor from "./pages/proveedor/Proveedor";
 
 
 function App() {
@@ -22,6 +25,9 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPassword/>} />
         <Route path="/eventos" element={<EventosPage />} />
         <Route path="/capacitaciones" element={<CapacitacionesPage />} />
+        <Route path="/usuarios" element={<Usuarios />} />
+         <Route path="/admin" element={<Admin />} />
+        <Route path="/proveedor" element={<Proveedor />} />
       </Routes>
     </BrowserRouter>
   );
