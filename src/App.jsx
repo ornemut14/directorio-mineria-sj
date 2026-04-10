@@ -5,8 +5,9 @@ import Allservices from "./pages/allservices/allservices";
 import Login from "./pages/login/Login";
 import CategoriesPage from "./pages/categoriespage/categoriespage";
 import ForgotPassword from "./pages/login/ForgotPassword";
-import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
+import EventosPage from "./pages/eventospage/EventosPage";
+import CapacitacionesPage from "./pages/capacitacionespage/CapacitacionesPage";
 
 
 function App() {
@@ -19,6 +20,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/categorias" element={<CategoriesPage />} />
         <Route path="/forgot-password" element={<ForgotPassword/>} />
+        <Route path="/eventos" element={<EventosPage />} />
+        <Route path="/capacitaciones" element={<CapacitacionesPage />} />
       </Routes>
     </BrowserRouter>
   );

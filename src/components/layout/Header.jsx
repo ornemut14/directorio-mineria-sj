@@ -14,8 +14,8 @@ function Header() {
         <nav className="nav">
           <a href="/">Inicio</a>
           <a href="/categorias">Categorías</a>
-          <a href="#">Eventos</a>
-          <a href="#">Capacitaciones</a>
+          <a href="/eventos">Eventos</a>
+          <a href="/capacitaciones">Capacitaciones</a>
           <a href="#footer">Contacto</a>
         </nav>
 
