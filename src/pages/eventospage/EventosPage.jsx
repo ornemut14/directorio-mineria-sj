@@ -49,7 +49,8 @@ const EventosPage = () => {
     <section className="eventos">
       <div className="eventos-header">
         <h1>Eventos Destacados</h1>
-        <p>Descubrí los eventos más importantes del sector</p>
+        <span class="eyebrow">Descubrí los eventos más importantes del sector</span>
+        <p>Explora los proximos eventos.</p>
       </div>
 
       <div className="eventos-grid">

@@ -47,7 +47,8 @@ const CapacitacionesPage = () => {
       <section className="capacitaciones">
         <div className="capacitaciones-header">
           <h1>Capacitaciones</h1>
-          <p>Formate y potenciá tu perfil profesional</p>
+          <span class="eyebrow"> Formate y potenciá tu perfil profesional</span>
+          <p>Explora todas nuestras capacitaciones.</p>
         </div>
 
         <div className="capacitaciones-grid">
