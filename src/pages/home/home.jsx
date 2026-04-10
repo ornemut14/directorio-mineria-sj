@@ -5,6 +5,7 @@ import Header from "../../components/layout/Header";
 import ServiciosDestacados from "../../components/services/ServiciosDestacados";
 import ComoFuncionaSuscripcion from "../../components/suscripcion/ComoFuncionaSuscripcion";
 import TestimoniosUsuarios from "../../components/user/TestimoniosUsuarios";
+import SectionCompliance from "./sectioncompliance/sectioncompliance";
 
 function Home() {
   return (
@@ -15,6 +16,7 @@ function Home() {
       <ServiciosDestacados />
       <ComoFuncionaSuscripcion />
       <TestimoniosUsuarios />
+      <SectionCompliance />
       <Footer />
     </>
   );
