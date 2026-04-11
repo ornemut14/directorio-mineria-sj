@@ -1,58 +1,105 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import "./eventos.css";
 
 function EventosList() {
   const [eventos, setEventos] = useState([]);
 
-  useEffect(() => {
+  // 🔥 función para traer eventos
+  const obtenerEventos = () => {
     axios.get("http://localhost:3001/eventos")
-      .then(res => setEventos(res.data))
-      .catch(err => console.log(err));
+      .then(res => {
+        setEventos(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+        alert("Error al cargar eventos ❌");
+      });
+  };
+
+  // 🔄 cargar al iniciar
+  useEffect(() => {
+    obtenerEventos();
   }, []);
 
+  // 🗑 eliminar evento
   const eliminar = (id) => {
+    if (!window.confirm("¿Seguro que querés eliminar este evento?")) return;
+
     axios.delete(`http://localhost:3001/eventos/${id}`)
       .then(() => {
-        setEventos(eventos.filter(e => e.id !== id));
+        obtenerEventos(); // 🔥 refresca desde DB
+      })
+      .catch(err => {
+        console.log(err);
+        alert("Error al eliminar ❌");
       });
   };
 
   return (
-    <div>
-      <h1>Eventos</h1>
+    <div className="eventos-container">
 
-      <Link to="/admin/eventos/nuevo">
-        <button>+ Crear evento</button>
-      </Link>
+      <div className="eventos-header">
+        <h1>Eventos</h1>
 
-      <table border="1" width="100%">
-        <thead>
-          <tr>
-            <th>Título</th>
-            <th>Fecha</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
+        <Link to="/admin/eventos/nuevo">
+          <button className="btn-primary">+ Crear evento</button>
+        </Link>
+      </div>
 
-        <tbody>
-          {eventos.map(e => (
-            <tr key={e.id}>
-              <td>{e.titulo}</td>
-              <td>{e.fecha}</td>
-              <td>
-                <Link to={`/admin/eventos/editar/${e.id}`}>
-                  <button>Editar</button>
-                </Link>
-
-                <button onClick={() => eliminar(e.id)}>
-                  Eliminar
-                </button>
-              </td>
+      <div className="eventos-table-card">
+        <table className="eventos-table">
+          <thead>
+            <tr>
+              <th>Título</th>
+              <th>Fecha</th>
+              <th>Descripcion</th>
+              <th className="acciones">Acciones</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+
+          <tbody>
+            {eventos.length > 0 ? (
+              eventos.map(e => (
+                <tr key={e.id}>
+                  <td className="titulo">{e.titulo}</td>
+
+                  {/* 🔥 formateo de fecha */}
+                  <td>
+                    {new Date(e.fecha).toLocaleDateString()}
+                  </td>
+                  
+                    <td>
+                      {e.descripcion}
+                    </td>
+                  <td className="acciones">
+
+                    <Link to={`/admin/eventos/editar/${e.id}`}>
+                      <button className="btn-edit">Editar</button>
+                    </Link>
+
+                    <button 
+                      className="btn-delete"
+                      onClick={() => eliminar(e.id)}
+                    >
+                      Eliminar
+                    </button>
+
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="3" style={{ textAlign: "center", padding: "20px" }}>
+                  No hay eventos cargados
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+
     </div>
   );
 }

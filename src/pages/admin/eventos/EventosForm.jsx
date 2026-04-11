@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import "./eventosForm.css";
 
 function EventosForm() {
   const [titulo, setTitulo] = useState("");
@@ -8,41 +9,106 @@ function EventosForm() {
   const [descripcion, setDescripcion] = useState("");
 
   const navigate = useNavigate();
+  const { id } = useParams(); // 🔥 detecta si estamos editando
+
+  // 🔥 CARGAR DATOS SI ES EDICIÓN
+  useEffect(() => {
+    if (id) {
+      axios.get(`http://localhost:3001/eventos/${id}`)
+        .then(res => {
+          setTitulo(res.data.titulo);
+          setFecha(res.data.fecha?.split("T")[0]); // formato input date
+          setDescripcion(res.data.descripcion);
+        })
+        .catch(err => console.log(err));
+    }
+  }, [id]);
 
   const guardar = (e) => {
     e.preventDefault();
 
-    axios.post("http://localhost:3001/eventos", {
-      titulo,
-      fecha,
-      descripcion
-    }).then(() => {
-      navigate("/admin/eventos");
-    });
+    const data = { titulo, fecha, descripcion };
+
+    // 🔥 SI HAY ID → EDITAR
+    if (id) {
+      axios.put(`http://localhost:3001/eventos/${id}`, data)
+        .then(() => {
+          alert("Evento actualizado ✅");
+          navigate("/admin/eventos");
+        })
+        .catch(err => {
+          console.log(err);
+          alert("Error al actualizar ❌");
+        });
+    } else {
+      // 🔥 SI NO → CREAR
+      axios.post("http://localhost:3001/eventos", data)
+        .then(() => {
+          alert("Evento creado ✅");
+          navigate("/admin/eventos");
+        })
+        .catch(err => {
+          console.log(err);
+          alert("Error al crear ❌");
+        });
+    }
   };
 
   return (
-    <div>
-      <h1>Crear Evento</h1>
+    <div className="form-container">
+      <div className="form-card">
 
-      <form onSubmit={guardar}>
-        <input
-          placeholder="Título"
-          onChange={(e) => setTitulo(e.target.value)}
-        />
+        <div className="form-header">
+          <h1>{id ? "Editar Evento" : "Crear Evento"}</h1>
+        </div>
 
-        <input
-          type="date"
-          onChange={(e) => setFecha(e.target.value)}
-        />
+        <form onSubmit={guardar} className="form">
 
-        <textarea
-          placeholder="Descripción"
-          onChange={(e) => setDescripcion(e.target.value)}
-        />
+          <div className="form-group">
+            <label>Título</label>
+            <input
+              value={titulo}
+              onChange={(e) => setTitulo(e.target.value)}
+              required
+            />
+          </div>
 
-        <button type="submit">Guardar</button>
-      </form>
+          <div className="form-group">
+            <label>Fecha</label>
+            <input
+              type="date"
+              value={fecha}
+              onChange={(e) => setFecha(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Descripción</label>
+            <textarea
+              value={descripcion}
+              onChange={(e) => setDescripcion(e.target.value)}
+              rows="4"
+            />
+          </div>
+
+          <div className="form-actions">
+            <button 
+              type="button" 
+              className="btn-secondary"
+              onClick={() => navigate("/admin/eventos")}
+            >
+              Cancelar
+            </button>
+
+            <button type="submit" className="btn-primary">
+              {id ? "Actualizar" : "Guardar Evento"}
+            </button>
+          </div>
+
+        </form>
+
+      </div>
     </div>
   );
 }

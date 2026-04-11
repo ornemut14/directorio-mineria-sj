@@ -20,6 +20,10 @@ app.get("/", (req, res) => {
   res.send("Backend funcionando 🚀");
 });
 
+// =======================
+// 👤 USUARIOS
+// =======================
+
 // 📌 Obtener usuarios
 app.get("/usuarios", (req, res) => {
   db.query("SELECT * FROM usuarios", (err, result) => {
@@ -33,10 +37,10 @@ app.post("/usuarios", (req, res) => {
   const { email, password, rol } = req.body;
 
   const sql = "INSERT INTO usuarios (email, password, rol) VALUES (?, ?, ?)";
-  
-  db.query(sql, [email, password, rol || "proveedor"], (err, result) => {
+
+  db.query(sql, [email, password, rol || "proveedor"], (err) => {
     if (err) return res.json(err);
-    return res.json("Usuario creado");
+    return res.json({ message: "Usuario creado" });
   });
 });
 
@@ -63,7 +67,62 @@ app.post("/login", (req, res) => {
   });
 });
 
+// =======================
+// 📅 EVENTOS
+// =======================
+// 📅 OBTENER EVENTO POR ID
+app.get("/eventos/:id", (req, res) => {
+  db.query("SELECT * FROM eventos WHERE id = ?", [req.params.id], (err, result) => {
+    if (err) return res.status(500).json(err);
+    res.json(result[0]);
+  });
+});
+// 📅 OBTENER EVENTOS
+app.get("/eventos", (req, res) => {
+  db.query("SELECT * FROM eventos", (err, result) => {
+    if (err) return res.json(err);
+    res.json(result);
+  });
+});
+
+// 📅 CREAR EVENTO
+app.post("/eventos", (req, res) => {
+  console.log("Evento recibido:", req.body); // 🔥 debug
+
+  const { titulo, descripcion, fecha } = req.body;
+
+  const sql = "INSERT INTO eventos (titulo, descripcion, fecha) VALUES (?, ?, ?)";
+
+  db.query(sql, [titulo, descripcion, fecha], (err) => {
+    if (err) {
+      console.log("Error MySQL:", err);
+      return res.json(err);
+    }
+    res.json({ message: "Evento creado" });
+  });
+});
+
+// 📅 ELIMINAR EVENTO
+app.delete("/eventos/:id", (req, res) => {
+  db.query("DELETE FROM eventos WHERE id = ?", [req.params.id], (err) => {
+    if (err) return res.json(err);
+    res.json({ message: "Evento eliminado" });
+  });
+});
+// 📅 ACTUALIZAR EVENTO
+app.put("/eventos/:id", (req, res) => {
+  const { titulo, descripcion, fecha } = req.body;
+
+  const sql = "UPDATE eventos SET titulo = ?, descripcion = ?, fecha = ? WHERE id = ?";
+
+  db.query(sql, [titulo, descripcion, fecha, req.params.id], (err) => {
+    if (err) return res.status(500).json(err);
+    res.json({ message: "Evento actualizado" });
+  });
+});
+// =======================
 // 🚀 SERVIDOR
+// =======================
 app.listen(3001, () => {
-  console.log("Servidor corriendo en puerto 3001");
+  console.log("Servidor corriendo en http://localhost:3001 🚀");
 });
