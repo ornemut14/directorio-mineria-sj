@@ -1,0 +1,78 @@
+/* 📦 CONTENEDOR */
+.categorias-container {
+  padding-top: 100px; /* 🔥 evita header */
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+.categorias-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 20px;
+}
+
+/* TÍTULO */
+.categorias-header h1 {
+  font-size: 28px;
+}
+
+/* BOTÓN CREAR */
+.btn-primary {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* TABLA */
+.categorias-table-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.categorias-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.categorias-table th,
+.categorias-table td {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.categorias-table th {
+  background: #f9fafb;
+  text-align: left;
+}
+
+/* ACCIONES */
+.acciones {
+  text-align: right;
+}
+
+.btn-edit {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  margin-right: 5px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-delete {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}

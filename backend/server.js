@@ -120,6 +120,55 @@ app.put("/eventos/:id", (req, res) => {
     res.json({ message: "Evento actualizado" });
   });
 });
+
+app.get("/categorias", (req, res) => {
+  db.query("SELECT * FROM categorias ORDER BY id DESC", (err, result) => {
+    if (err) return res.status(500).json(err);
+    res.json(result);
+  });
+});
+
+app.post("/categorias", (req, res) => {
+  const { nombre } = req.body;
+
+  const sql = "INSERT INTO categorias (nombre) VALUES (?)";
+
+  db.query(sql, [nombre], (err) => {
+    if (err) return res.status(500).json(err);
+    res.json({ message: "Categoría creada" });
+  });
+});
+
+app.get("/categorias/:id", (req, res) => {
+  db.query(
+    "SELECT * FROM categorias WHERE id = ?",
+    [req.params.id],
+    (err, result) => {
+      if (err) return res.status(500).json(err);
+      res.json(result[0]);
+    }
+  );
+});
+
+app.put("/categorias/:id", (req, res) => {
+  const { nombre } = req.body;
+
+  const sql = "UPDATE categorias SET nombre = ? WHERE id = ?";
+
+  db.query(sql, [nombre, req.params.id], (err) => {
+    if (err) return res.status(500).json(err);
+    res.json({ message: "Categoría actualizada" });
+  });
+});
+
+app.delete("/categorias/:id", (req, res) => {
+  db.query("DELETE FROM categorias WHERE id = ?", [req.params.id], (err) => {
+    if (err) return res.status(500).json(err);
+    res.json({ message: "Categoría eliminada" });
+  });
+});
+
+
 // =======================
 // 🚀 SERVIDOR
 // =======================

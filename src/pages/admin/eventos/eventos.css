@@ -1,32 +1,52 @@
-/* CONTENEDOR */
+body {
+  margin: 0;
+  background: #f4f6fb;
+}
+
+/* CONTENEDOR PRINCIPAL */
 .eventos-container {
-  padding: 50px;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 100px 20px 50px; /* 👈 espacio para header + aire */
+  box-sizing: border-box;
 }
 
 /* HEADER */
 .eventos-header {
+  width: 100%;
+  max-width: 1100px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   margin-bottom: 25px;
 }
 
 .eventos-header h1 {
-  font-size: 2.6rem;              /* más grande */
+  font-size: 2.6rem;
   font-weight: 900;
   letter-spacing: -0.02em;
 
-  background: linear-gradient(90deg, #0369a1, #1e40af); /* 🔥 azul más profundo */
+  background: linear-gradient(90deg, #0369a1, #1e40af);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 /* BOTÓN PRINCIPAL */
 .btn-primary {
   background: linear-gradient(90deg, #0ea5e9, #6366f1);
   color: white;
   border: none;
+
   padding: 10px 18px;
   border-radius: 10px;
+
   font-weight: 600;
   cursor: pointer;
   transition: 0.3s;
@@ -39,13 +59,14 @@
 
 /* CARD */
 .eventos-table-card {
+  width: 100%;
+  max-width: 1100px;
+
   background: white;
   border-radius: 16px;
   padding: 20px;
 
-  box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.05);
-
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0,0,0,0.05);
 }
 
@@ -63,9 +84,11 @@
 .eventos-table th {
   text-align: left;
   padding: 14px;
+
   font-size: 0.85rem;
   text-transform: uppercase;
   color: #64748b;
+
   letter-spacing: 0.05em;
 }
 
@@ -81,7 +104,7 @@
   background: #f8fafc;
 }
 
-/* TÍTULO DESTACADO */
+/* TÍTULO */
 .titulo {
   font-weight: 600;
 }
@@ -92,13 +115,15 @@
   gap: 10px;
 }
 
-/* BOTÓN EDITAR */
+/* EDITAR */
 .btn-edit {
   background: #e0f2fe;
   color: #0369a1;
   border: none;
+
   padding: 6px 12px;
   border-radius: 8px;
+
   cursor: pointer;
   transition: 0.2s;
 }
@@ -107,23 +132,19 @@
   background: #bae6fd;
 }
 
-/* BOTÓN ELIMINAR */
+/* ELIMINAR */
 .btn-delete {
   background: #fee2e2;
   color: #b91c1c;
   border: none;
+
   padding: 6px 12px;
   border-radius: 8px;
+
   cursor: pointer;
   transition: 0.2s;
 }
 
 .btn-delete:hover {
   background: #fecaca;
-}
-.eventos-table td {
-  max-width: 250px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }

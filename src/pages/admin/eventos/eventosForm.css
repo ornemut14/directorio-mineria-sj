@@ -1,16 +1,23 @@
+body {
+  margin: 0;
+  background: #f4f6fb;
+}
+
+/* CONTENEDOR */
 .form-container {
   display: flex;
   justify-content: center;
-  align-items: center; /* 🔥 centra vertical */
+  align-items: center;
 
-  padding: 80px 20px 40px; /* menos arriba */
+  min-height: 100vh;
 
-  background: white;
+  padding: 100px 20px 40px; /* 👈 espacio real para header */
+  box-sizing: border-box;
 
-  min-height: calc(100vh - 80px); /* 🔥 evita scroll */
+  background: #f4f6fb;
 }
 
-/* 💎 CARD PREMIUM REAL */
+/* CARD PREMIUM */
 .form-card {
   width: 100%;
   max-width: 620px;
@@ -29,21 +36,22 @@
   transition: all 0.3s ease;
 }
 
-/* ✨ EFECTO SUTIL */
+/* HOVER SUAVE */
 .form-card:hover {
   transform: translateY(-4px);
   box-shadow:
-    0 50px 120px rgba(0, 0, 0, 0.1);
+    0 50px 120px rgba(0, 0, 0, 0.10);
 }
+
+/* HEADER */
 .form-header h1 {
   font-size: 2.6rem;
   font-weight: 800;
+
   letter-spacing: -0.02em;
+  line-height: 1.2;
 
-  line-height: 1.2; /* 🔥 clave para que no se corte */
-  padding: 5px 0;   /* 🔥 le da aire arriba y abajo */
-
-  display: inline-block;
+  padding: 5px 0;
 
   background: linear-gradient(90deg, #0369a1, #1e40af);
   -webkit-background-clip: text;
@@ -56,14 +64,14 @@
   margin-bottom: 30px;
 }
 
-/* 📐 FORM */
+/* FORM */
 .form {
   display: flex;
   flex-direction: column;
   gap: 26px;
 }
 
-/* 🔹 GROUP */
+/* GROUP */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -73,33 +81,34 @@
 .form-group label {
   font-size: 0.8rem;
   text-transform: uppercase;
+
   letter-spacing: 0.08em;
   color: #64748b;
+
   margin-bottom: 8px;
 }
 
-/* 🔥 INPUTS ULTRA LIMPIOS */
+/* INPUTS */
 .form-group input,
 .form-group textarea {
   border: none;
   border-bottom: 1px solid #e2e8f0;
 
   padding: 10px 4px;
-
   font-size: 1rem;
+
   background: transparent;
 
   transition: all 0.2s ease;
 }
 
-/* FOCUS PRO */
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
   border-bottom: 1px solid #6366f1;
 }
 
-/* ✨ ACCIONES */
+/* ACTIONS */
 .form-actions {
   display: flex;
   justify-content: space-between;
@@ -108,16 +117,18 @@
   margin-top: 20px;
 }
 
-/* BOTÓN SECUNDARIO */
+/* SECUNDARIO */
 .btn-secondary {
   background: transparent;
   color: #64748b;
+
   border: none;
   font-weight: 500;
+
   cursor: pointer;
 }
 
-/* BOTÓN PRINCIPAL (LUJO) */
+/* PRINCIPAL */
 .btn-primary {
   background: linear-gradient(90deg, #0ea5e9, #6366f1);
   color: white;
