@@ -17,6 +17,7 @@ import EventosForm from "./pages/admin/eventos/EventosForm";
 
 import CategoriasList from "./pages/admin/categorias/CategoriasList";
 import CategoriasForm from "./pages/admin/categorias/CategoriasForm";
+import Formulario from "./pages/register/Formulario";
 
 function App() {
   return (
@@ -24,7 +25,6 @@ function App() {
       <Header />
 
       <Routes>
-
         {/* 🌐 PUBLICO */}
         <Route path="/" element={<Home />} />
         <Route path="/servicios" element={<Allservices />} />
@@ -34,10 +34,10 @@ function App() {
         <Route path="/eventos" element={<EventosPage />} />
         <Route path="/capacitaciones" element={<CapacitacionesPage />} />
         <Route path="/usuarios" element={<Usuarios />} />
+        <Route path="/register" element={<Formulario />} />
 
         {/* 🔐 ADMIN */}
         <Route path="/admin" element={<AdminLayout />}>
-
           {/* Dashboard principal */}
           <Route index element={<Dashboard />} />
 
@@ -50,9 +50,7 @@ function App() {
           <Route path="categorias" element={<CategoriasList />} />
           <Route path="categorias/nuevo" element={<CategoriasForm />} />
           <Route path="categorias/editar/:id" element={<CategoriasForm />} />
-
         </Route>
-
       </Routes>
     </BrowserRouter>
   );
